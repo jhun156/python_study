@@ -1,9 +1,6 @@
-list = []
-result = 0
-for num in map(int,input().split()):
-    list.append(num)
+a, b = map(int,input().split())
 
-for i in list:
-    result += i
+my_list = [a + i for i in range(0,int(b-a)+1)]
 
-print(result)
+for i in my_list:
+    print(i,end='')
