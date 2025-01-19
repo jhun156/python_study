@@ -1,6 +1,9 @@
-a = int(input())
+list = []
+result = 0
+for num in map(int,input().split()):
+    list.append(num)
 
-result = [a + i for i in range(6)]
+for i in list:
+    result += i
 
-for i in result:
-    print(i)
+print(result)
