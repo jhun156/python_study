@@ -1,14 +1,19 @@
-arr1 = [3,5,2,4,1]
-arr2 = [[9,8],[7,1],[3,4]]
+def main():
+    
+    a = int(input())
+    num = 0
 
-a = int(input())
+    while num != 1:
+        if a < 20:
+            print("더 큰수를 입력하세요")
+            a = int(input())
+        elif a > 20:
+            print("더 작은수를 입력하세요")
+            a = int(input())
+        else:
+            print("정답입니다")
+            num = 1
+            break
 
-if a % 2 == 0:
-    for i in arr2:
-        for j in i:
-            print(j,end='')
-        print()
-else:
-    for i in arr1:
-        print(i,end='')
+main() * 4
 
