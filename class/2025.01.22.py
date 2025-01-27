@@ -252,3 +252,49 @@
 # 결론
 # 변수의 경우 전역변수의 값을 바꾸는 경우가 아니라면 global 생략가능
 # 리스트의 경우 리스트의 값을 바꾸는 것은 global 생략가능, 그러나 재할당은 반드시 global 써야 가능
+
+# girls = ['jane','ashley']
+# boys = ['peter','jay','tom']
+# pair = zip(girls,boys)
+# print(pair)
+# print(list(pair))
+
+# kr_scores = [10,20,30,40]
+# math_scores = [20,40,50,70]
+# en_scores = [40,20,30,50]
+
+# for student_scores in zip(kr_scores,math_scores,en_scores):
+#     print(student_scores)
+
+# scores = [
+#     [10,20,30],
+#     [40,50,60],
+#     [20,40,70],
+# ]
+
+# for score in zip(*scores):
+#     print(score)
+
+numbers = [1,2,3,4,5]
+
+def square(x):
+    return x**2
+
+squared1 = list(map(square,numbers))
+print(squared1)
+
+squared2 = list(map(lambda x:x**2,numbers))
+print(squared2)
+
+numbers = [1,2,3,4,5]
+squared_numbers = [num **2 for num in numbers]
+print(squared_numbers)
+
+data1 = [[0] * 5 for _ in range(5)]
+data2 = [[0 for _ in range(5)] for _ in range(5)]
+print(data1)
+print(data2)
+
+fruits = ['apple','banana','cherry']
+for index, fruit in enumerate(fruits,3):
+    print(index, fruit)
