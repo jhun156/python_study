@@ -275,26 +275,26 @@
 # for score in zip(*scores):
 #     print(score)
 
-numbers = [1,2,3,4,5]
+# numbers = [1,2,3,4,5]
 
-def square(x):
-    return x**2
+# def square(x):
+#     return x**2
 
-squared1 = list(map(square,numbers))
-print(squared1)
+# squared1 = list(map(square,numbers))
+# print(squared1)
 
-squared2 = list(map(lambda x:x**2,numbers))
-print(squared2)
+# squared2 = list(map(lambda x:x**2,numbers))
+# print(squared2)
 
-numbers = [1,2,3,4,5]
-squared_numbers = [num **2 for num in numbers]
-print(squared_numbers)
+# numbers = [1,2,3,4,5]
+# squared_numbers = [num **2 for num in numbers]
+# print(squared_numbers)
 
-data1 = [[0] * 5 for _ in range(5)]
-data2 = [[0 for _ in range(5)] for _ in range(5)]
-print(data1)
-print(data2)
+# data1 = [[0] * 5 for _ in range(5)]
+# data2 = [[0 for _ in range(5)] for _ in range(5)]
+# print(data1)
+# print(data2)
 
-fruits = ['apple','banana','cherry']
-for index, fruit in enumerate(fruits,3):
-    print(index, fruit)
+# fruits = ['apple','banana','cherry']
+# for index, fruit in enumerate(fruits,3):
+#     print(index, fruit)

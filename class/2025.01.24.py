@@ -109,14 +109,14 @@
 # a2 = "".join(a2)
 # print(a2)
 
-lst=list(range(1,11))
+# lst=list(range(1,11))
 
 # print(lst)
 # lst2 = sorted(lst,reverse=True)
 # print(lst2)
 
-ret=sorted(lst,key=lambda x:-x)
-print(ret)
+# ret=sorted(lst,key=lambda x:-x)
+# print(ret)
 
 # 1. 홀수우선
 # 2. 내림차순
