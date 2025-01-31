@@ -148,3 +148,8 @@ a = Counter('apple')
 b = Counter('mango')
 print(a+b)
 print(a-b)
+
+# DAT (Direct Address Table)
+
+print(hash('a'))
+print(hash('최민호'))
