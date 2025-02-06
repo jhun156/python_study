@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open("input.txt","r")
+# import sys
+# sys.stdin = open("input.txt","r")
 
 T = 10
 for test_case in range(1, T + 1):
@@ -8,20 +8,19 @@ for test_case in range(1, T + 1):
     main_list = [0,0,*input_list,0,0]
     def get_point(index):
         temp_list = [main_list[index + i] for i in range(5)]
-        temp_max = max(temp_list)
-        result = 0
-        result_list = []
-        for i in range(5):
-            result_list.append(temp_list[i] - temp_max)
-        for i in range(5):
-            if result_list[i] > 0:
-                result += result_list[i]
-        return result
+        result_list = temp_list[:]
+        for i in range(4):
+            for j in range(i+1,5):
+                if temp_list[i] > temp_list[j]:
+                    temp_list[i],temp_list[j] = temp_list[j],temp_list[i]
+        temp = result_list[2] - temp_list[3]
+        if temp > 0:
+            return temp
+        else:
+            return 0
 
     answer = 0
-    for i in range(10):
-        temp = 0
-        temp += get_point(i)
-        answer += temp
+    for i in range(num):
+        answer += get_point(i)
 
     print(f"#{test_case} {answer}")
