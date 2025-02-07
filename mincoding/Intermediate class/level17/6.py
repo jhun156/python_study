@@ -15,7 +15,7 @@ mask2 = [
 for i in range(4):
     for j in range(4):
         if mask1[i][j] == 1 or mask2[i][j] == 1:
-            mask1[i][j],mask2[i][j] = 0,0
+            mask1[i][j],mask2[i][j] = 1,1
 
 for i in range(4):
     for j in range(4):
