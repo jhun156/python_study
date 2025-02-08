@@ -1,26 +1,24 @@
-import sys
-sys.stdin = open("input.txt","r")
+# import sys
+# sys.stdin = open("input.txt","r")
 
 t = int(input())
 
-for case_num in range(1, t + 1):
-    k, n, m = map(int, input().split())
-    stations = list(map(int, input().split()))
+for test_case in range(1, t + 1):
+    K, N, M = map(int, input().split())
+    charge_stop = list(map(int, input().split()))
 
-    location = 0
-    cnt = 0
-
-    while location + k < n:
-        next_location = location + k
-
-        while next_location > location and next_location not in stations:
-            next_location -= 1
-
-        if next_location == location:
+    start,cnt = 0,0
+    tmp = start + K
+    while start + K < N:
+        for i in range(M-1,-1,-1):
+            if tmp == charge_stop[i]:
+                start = tmp
+                tmp = start + K
+                cnt += 1
+                break
+        else:
+            tmp -= 1
+        if tmp == start:
             cnt = 0
             break
-
-        location = next_location
-        cnt += 1
-
-    print(f"#{case_num} {cnt}")
+    print(f"#{test_case} {cnt}")
