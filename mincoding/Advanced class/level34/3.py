@@ -1,3 +1,6 @@
+# import sys
+# sys.stdin = open("input.txt","r")
+
 N = int(input())
 book_list = list(input().split())
 P = int(input())    # 손님의 수
@@ -10,7 +13,7 @@ book_list.sort()
 def binary_search(key):
     st = 0
     ed = N-1
-    cnt = 0
+    cnt = 1
     if key not in book_list:
         return -1
     while True:
