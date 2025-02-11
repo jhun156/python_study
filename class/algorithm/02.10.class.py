@@ -63,10 +63,10 @@ for tc in range(1,T+1):
     print(f"#{tc} {Max}")
 '''
 
+
 # 이진 탐색 (Binary Search)
 
-def binary_search(st,ed,target):
-
+def binary_search(st, ed, target):
     while True:
         mid = (st + ed) // 2
         if arr[mid] == target:
@@ -77,6 +77,7 @@ def binary_search(st,ed,target):
             st = mid + 1
         if st > mid:
             return 0
+
 
 # Parametric Search
 '''
@@ -156,21 +157,22 @@ def abc(level):
     print(level)
     abc(level+1)
     print(level)
-    
+
 abc(0)
 '''
+
 
 # 5 입력시 0 1 2 3 4 4 3 2 1 0
 # 3 입력시 0 1 2 2 1 0
 
 def abc(level):
-
     if level == 5:
         return
 
     print(level)
-    abc(level+1)
+    abc(level + 1)
     print(level)
+
 
 abc(0)
 
