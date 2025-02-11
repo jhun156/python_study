@@ -1,10 +1,13 @@
-# 1 2 3 4 5 4 3 2 1
+def abc(level):
+    print("1")
+    global cnt
 
-def bbq(num):
-
-    print(level, end =' ')
-    if level == 5:
+    if level==2:
         return
-    abc(level+1)
 
-bbq(1)
+    for i in range(2):
+        abc(level+1)
+
+cnt = 0
+abc(0)
+print(cnt)
