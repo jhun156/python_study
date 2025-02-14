@@ -1,5 +1,5 @@
-# import sys
-# sys.stdin = open("input.txt","r")
+import sys
+sys.stdin = open("input.txt","r")
 
 T = int(input())
 for tc in range(1,T+1):
@@ -52,3 +52,64 @@ for tc in range(1,T+1):
         print(f"#{tc} YES")
     else:
         print(f"#{tc} NO")
+
+t = int(input())
+for test in range(1, t + 1):
+    n = int(input())
+    arr = [list(input()) for _ in range(n)]
+
+    # 가로,세로,대각선
+    def solution(y, x):
+        # 가로 돌의 개수가 5개 이상
+        count = 0
+        for i in range(x, n):
+            if arr[y][i] == 'o':
+                count += 1
+        if count >= 5:
+            return 1
+
+        # 세로 돌의 개수가 5개 이상
+        count = 0
+        for i in range(y, n):
+            if arr[i][x] == 'o':
+                count += 1
+        if count >= 5:
+            return 1
+
+        # 왼쪽으로 가는 대각선
+        count = 0
+        for i in range(5):
+            if y + i < n and x - i >= 0:
+                if arr[y + i][x - i] == 'o':            # j 를 x로 수정
+                    count += 1
+            else:
+                break
+        if count >= 5:
+            return 1
+
+        # 오른쪽으로 가는 대각선
+        count = 0                                       # j를 x로 수정
+        for i in range(5):
+            if y + i < n and x + i < n:
+                if arr[y + i][x + i] == 'o':
+                    count += 1
+            else:
+                break
+        if count >= 5:
+            return 1
+
+        return 0
+
+    res = 0         # for문 밖에 선언해야 위험성이 없음
+    for i in range(n):
+        for j in range(n):
+            if arr[i][j] == 'o':
+                res = solution(i, j)
+                if res == 1:
+                    break
+        if res == 1:
+            break
+    if res == 1:
+        print(f'#{test} YES')
+    else:
+        print(f'#{test} NO')
