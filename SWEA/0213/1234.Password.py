@@ -1,30 +1,32 @@
-import sys
-sys.stdin = open("input.txt","r")
+# import sys
+# sys.stdin = open("input.txt","r")
 
 T = 10
 for tc in range(1,T+1):
-    n,A = map(int,input().split())
-    a = str(A)
-    lst = list(map(int,a))
-    sted = []
-    for i in range(n-1):
-        row = []
-        if lst[i] == lst[i+1]:
-            row.append(i)
-            row.append(i+1)
-            sted.append(row)
-
-    m = len(sted)
-    tmp_lst = []
-    for i in range(m):
-        tmp = 0
-        while 1:
-            if lst[sted[i][0]-tmp] == lst[sted[i][1]+tmp]:
-                tmp += 1
-            else:
+    M,A = input().split()
+    n = int(M)
+    lst = list(map(int,A))
+    while 1:
+        left,right = -1,-1   # 좌우 확인
+        N = len(lst)
+        if N == 1:
+            break
+        for i in range(N-1):
+            if lst[i] == lst[i+1]:
+                left,right = i,i+1
                 break
-        tmp_lst.append(tmp)
+        if left == -1:
+            break
+        else:
+            tmp = 0
+            while 1:
+                if left-tmp >= 0 and right+tmp < N and lst[left-tmp] == lst[right+tmp]:
+                    tmp += 1
+                else:
+                    break
+            del lst[left-tmp+1:right+tmp]
 
-    for i in range(m):
-        del lst[sted[i][0]-tmp_lst[i]+1:sted[i][1]+tmp_lst[i]]
-    print(*lst)
+    print(f"#{tc}",end=' ')
+    for i in lst:
+        print(i,end='')
+    print()
