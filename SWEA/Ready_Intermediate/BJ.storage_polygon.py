@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open("input.txt","r")
+# import sys
+# sys.stdin = open("input.txt","r")
 
 N = int(input())
 lst = [[0] * N for _ in range(2)]   # lst[0],lst[1]을 각각 인덱스와 높이로 활용
@@ -11,8 +11,8 @@ Max = max(lst[1])           # 가장 높은 높이
 Max_index = 0               # 값을 계산하기 위한 기준점 찾기
 for i in range(N):
     if lst[1][i] == Max:
-        Max_index = lst[0][i]
-area = Max                  # 가장 높은 값의 인덱스 기준으로 양옆까지만 계산할 것이기 때문에 넓이 = Max 부터 시작함
+        Max_index = lst[0][i]   # 가장 오른쪽의 맥스값과 같은 인덱스
+area = 0                 # 가장 높은 값의 인덱스 기준으로 양옆까지만 계산할 것이기 때문에 넓이 = Max 부터 시작함
 st = min(lst[0])            # column 에서 시작점 인덱스
 ed = max(lst[0])            # column 에서 끝점 인덱스
 column = [0] * (ed+1)       # column 생성 1000개 생성할 필요없이 ed를 활용해 크기를 줄임
@@ -29,11 +29,11 @@ while st < Max_index:       # Max 인덱스가 될때까지 반복
         area += ph
         st += 1
 
-if column[ed] != Max:       # colmun[ed]가 Max값인 경우 area에 이미 Max값을 더해놓은 상태이므로
-    area += column[ed]      # 아닌 경우에만 더함
-
 ph = column[ed]
-while ed > Max_index + 1:
+area += ph
+ed -= 1
+
+while ed >= Max_index:
     if column[ed] <= ph:
         area += ph
         ed -= 1
