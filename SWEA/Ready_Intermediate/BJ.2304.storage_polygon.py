@@ -1,5 +1,5 @@
-# import sys
-# sys.stdin = open("input.txt","r")
+import sys
+sys.stdin = open("input.txt","r")
 
 N = int(input())
 lst = [[0] * N for _ in range(2)]   # lst[0],lst[1]을 각각 인덱스와 높이로 활용
