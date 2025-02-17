@@ -22,7 +22,7 @@ else (O가 먼저 이동해야 한다면)
        위에 적었던 설계 반대로 적기
 
 '''
-
+'''
 testcase = int(input())
 for tc in range(1, testcase + 1):
     ans = 0
@@ -75,3 +75,66 @@ for tc in range(1, testcase + 1):
                         nowB -= Omove
 
     print(f'#{tc} {time}')
+'''
+import sys
+sys.stdin = open("input.txt","r")
+
+T = int(input())
+for tc in range(1,T+1):
+    arr = list(input().split())
+    N = int(arr[0])
+    B_lst = []
+    O_lst = []
+    ans = 0
+    B,O = 1,1
+    next = 0
+    for i in range(1,len(arr),2):
+        if arr[i] == 'B':
+            B_lst.append(arr[i+1])
+        else:
+            O_lst.append(arr[i+1])
+
+    for i in range(1,len(arr),2):
+        if arr[i] == 'B':
+            next = B_lst.pop(0)
+            B_move = abs(B-next) + 1
+            ans += B_move
+            B = next
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
