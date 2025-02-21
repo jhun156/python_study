@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open("input.txt","r")
+# import sys
+# sys.stdin = open("input.txt","r")
 
 def GBB(a,b):
     if arr[a] == arr[b]:
@@ -27,5 +27,5 @@ for tc in range(1,T+1):
     arr = list(map(int,input().split()))
     arr.insert(0,0)  # 0번 인덱스에 0을 추가 인덱스 번호를 맞추기 위함
     ans = divide(list(range(1,N+1)))
-    print(f"#{tc} {arr[ans]}")
+    print(f"#{tc} {ans}")
     # 최종으로 이긴 사람의 인덱스 + 1 이 답
