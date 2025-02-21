@@ -1,0 +1,35 @@
+body {
+  color:red;
+}
+/* *를 쓰는 경우는 전체의 글씨체를 우선 통일하고싶을때와
+윗 공간 등의 여백을 없애고 싶을때 정도만 사용 */
+
+h2 {
+  color:orange;
+}
+
+h3, h4 {
+  font-size: 100px; 
+}
+
+.green {
+  color: green;
+}
+
+#purple {
+ color:purple; 
+}
+
+.box>p{
+  font-size: 30px;
+}
+/* 자식 결합자 > : 딱 아래 구간만 적용 */
+
+.box p{
+  color:violet;
+}
+/* 자손 결합자 : 스페이스 하위 모든데에 적용 */
+
+.green{
+  color:green !important
+}
