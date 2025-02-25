@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+.test{
+  border: 3px solid red;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item{
+  border: 3px solid black;
+  font-size: 100px;
+
+}
+
+.item:nth-child(3){
+  align-self: flex-start;
+  margin-top: 100px;
+}
+
+</style>
+
+</head>
+<body>
+  <div class="test">
+    <div class="item">하나</div>
+    <div class="item">둘</div>
+    <div class="item">셋</div>
+    <div class="item">넷</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .inline_center{
+      border: 3px solid red;
+      height: 400px;
+      margin: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .inline_center span{
+      border: 3px solid black;
+      font-size: 100px;
+    }
+
+    .inline_center_2{
+      border: 3px solid red;
+      height: 400px;
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      align-content: space-evenly;
+    }
+
+    .inline_center_2 span{
+      border: 3px solid black;
+      font-size: 100px;
+    }
+    
+    .block_center_3{
+      border: 3px solid red;
+      margin: 20px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .block_center_3 div{
+      border: 3px solid black;
+      width: 50px;
+      height: 50px;
+      font-size: 50px;
+      text-align: center;
+    }
+
+
+  </style>
+</head>
+<body>
+  <!-- 자식이 [인라인 요소]일 경우 가운데 정렬 
+         자식들을 한줄로 정렬할때 -->
+
+  <div class="inline_center">
+    <span>하나</span>
+    <span>둘</span>
+    <span>셋</span>
+    <span>넷</span>
+  </div>
+
+  <!-- 자식이 [인라인 요소]일 경우 가운데 정렬 
+      자식들이 많아서 여러줄로 나뉠때 -->
+  <div class="inline_center_2">
+    <span>하나</span>
+    <span>둘</span>
+    <span>셋</span>
+    <span>넷</span>
+    <span>다섯</span>
+
+  </div>
+
+  <!-- 3. 자식이 [블록 요소]일 경우 가운데 정렬 (main축) -->
+  <div class="block_center_3">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+  </div>
+
+</body>
+</html>

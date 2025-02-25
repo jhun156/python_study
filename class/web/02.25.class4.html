@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .inline_center{
+      border: 3px solid red;
+      height: 200px;
+      text-align: center;
+    }
+
+    .inline_center span{
+      border: 3px solid black;
+      font-size: 100px;
+      line-height: 200px;
+    }
+
+    .block_center_2{
+      border : 3px solid red;
+      margin : 20px;
+      text-align: center;
+    }
+    
+    .block_center_2 div{
+      border: 3px solid black;
+      width: 100px;
+      height: 100px;
+      font-size: 100px;
+      display: inline-block;
+    }
+
+    .block_center_3{
+      border: 3px solid red;
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .block_center_3 div{
+      border: 3px solid black;
+      width: 100px;
+      height: 100px;
+      font-size: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 4px;
+    }
+
+    .block_center_4{
+      border: 3px solid red;
+      margin: 20px;
+      width: 900px;
+    }
+    
+    .block_center_4 div{
+      border: 3px solid black;
+      width: 100px;
+      height: 100px;
+      font-size: 100px;
+      text-align: center;
+      margin: 0px auto
+    }
+
+
+  </style>
+</head>
+<body>
+  <!-- 1. 자식이 인라인 요소일 경우 가운데 정렬  -->
+  <div class="inline_center">
+    <span>하나</span>
+    <span>둘</span>
+    <span>셋</span>
+    <span>넷</span>
+  </div>
+
+  <!-- 2. 자식이 [블록 요소]일 경우 가운데 정렬 (main축) -->
+  <div class="block_center_2">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+  </div>
+
+  <!-- 3. 자식이 [블록 요소]일 경우 가운데 정렬 (main축) -->
+  <div class="block_center_3">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+  </div>
+
+
+  <!-- 4. 자식이 [블록 요소]일 경우 가운데 정렬 (main축) -->
+  <div class="block_center_4">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+  </div>
+
+</body>
+</html>
