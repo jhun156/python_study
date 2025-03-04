@@ -13,6 +13,7 @@ for tc in range(1,11):
     arr = [list(input()) for _ in range(100)]
     arr.extend(list(zip(*arr)))
     # arr = 100 * 200 사이즈
+    
     Max = 0
     for i in range(200):
         for j in range(100):
