@@ -228,7 +228,7 @@ else:
     print("불가능")
 '''
 
-'''
+
 # 한 지점에서 다른 지점으로 최소 이동거리 구하기
 arr = [
     [0,0,0,0,1],
@@ -268,10 +268,6 @@ def dfs(nowy,nowx,level):
 visited[0][0] = 1
 dfs(0,0,0)
 print(Min)
-'''
-
-
-
 
 
 
