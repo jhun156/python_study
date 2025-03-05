@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open("input.txt","r")
+# import sys
+# sys.stdin = open("input.txt","r")
 
 arr = list(map(int,input().split()))
 cnt = 0
@@ -12,7 +12,6 @@ def dfs(start,Sum):
         return
     if 10 <= Sum <= 20:
         cnt += 1
-        return
 
     for i in range(start,5):
         if used[i] == 0:
