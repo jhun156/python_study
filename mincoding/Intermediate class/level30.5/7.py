@@ -8,7 +8,6 @@ def dfs(n,level):
         Sum = sum(path)
         if 10 <= Sum <= 20:
             cnt += 1
-            return
         return
 
     for i in range(5):

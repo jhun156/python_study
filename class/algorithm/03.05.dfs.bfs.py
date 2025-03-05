@@ -111,6 +111,7 @@ for i in range(5):
 print(tmp)
 '''
 
+'''
 # 가장 큰 섬 사이즈, 작은 섬 사이즈, 섬의 개수까지
 from collections import deque
 
@@ -156,3 +157,7 @@ for i in range(5):
 print(f"Max={max(ans)}")
 print(f"Min={min(ans)}")
 print(f"cnt={len(ans)}")
+'''
+
+
+
