@@ -1,25 +1,24 @@
+import sys
+sys.stdin = open("input.txt","r")
+
 arr = list(map(int,input().split()))
 cnt = 0
+used = [0] * 5
 
-def dfs(n,level):
+def dfs(start,Sum):
 
     global cnt
-    if level == n:
-        Sum = sum(path)
-        if 10 <= Sum <= 20:
-            cnt += 1
+    if Sum > 20:
+        return
+    if 10 <= Sum <= 20:
+        cnt += 1
         return
 
-    for i in range(5):
+    for i in range(start,5):
         if used[i] == 0:
             used[i] = 1
-            path[level] = arr[i]
-            dfs(n,level+1)
+            dfs(i+1,Sum+arr[i])
             used[i] = 0
 
-for i in range(2,6):
-    path = [0] * i
-    used = [0] * 5
-    dfs(i,0)
-
+dfs(0,0)
 print(cnt)
