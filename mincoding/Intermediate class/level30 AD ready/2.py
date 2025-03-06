@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open("input.txt","r")
+# import sys
+# sys.stdin = open("input.txt","r")
 from copy import deepcopy
 
 a = [list(map(int,input().split())) for _ in range(3)]
@@ -14,7 +14,7 @@ while True:
     tmp = deepcopy(a)
     for i in range(3):
         for j in range(3):
-            a[i][j] = tmp[j][i]
+            a[i][j] = tmp[j][2-i]
     if a == b:
         print(cnt)
         break
