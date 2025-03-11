@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open("input.txt","r")
+# import sys
+# sys.stdin = open("input.txt","r")
 from collections import deque
 from copy import deepcopy
 
@@ -43,22 +43,24 @@ for i in range(8):
 Q = deque()
 while p:
     y,x = p.popleft()
-    Q.append((y,x,visited,0))
+    Q.append((y,x,0))
 # Q에 visited를 포함해서 다시 넣기
 
 Min = 21e8
+lst = deepcopy(visited)
 
 while Q:
-    ny, nx, lst, cnt = Q.popleft()
-    if arr[ny][nx] == '#':
-        Min = min(cnt, Min)
+    visited = lst
+    ny, nx, cnt = Q.popleft()
+    if arr[ny][nx] == '#' and cnt != 0:
+        Min = min(cnt-1, Min)
 
     for i in range(4):
         dy = ny + dY[i]
         dx = nx + dX[i]
         if dy < 0 or dy > 7 or dx < 0 or dx > 8: continue
-        if lst[dy][dx] == 1: continue
-        lst[dy][dx] = 1
-        Q.append((dy,dx,deepcopy(lst),cnt+1))
+        if visited[dy][dx] == 1: continue
+        visited[dy][dx] = 1
+        Q.append((dy,dx,cnt+1))
 
 print(Min)
