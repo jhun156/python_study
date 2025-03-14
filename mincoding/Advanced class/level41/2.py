@@ -1,27 +1,26 @@
 # import sys
 # sys.stdin = open("input.txt","r")
-from collections import deque
 
 N = int(input())
 arr = list(map(int,input().split()))
 arr.insert(0,0)
-Max = -21e8
-q = deque()
-q.append((0,0))
+arr.append(0)
+N += 2
+score = [-21e8] * N
+score[0] = 0
 
-while q:
-    now,score = q.popleft()
-    if now == N:
-        Max = max(score,Max)
+for i in range(2,N):
+    if i < 7:
+        score[i] = score[i-2] + arr[i]
+    a = score[i-7] + arr[i]
+    b = score[i-2] + arr[i]
+    if a > b:
+        score[i] = a
     else:
-        if now + 2 <= N:
-            q.append((now+2,score+arr[now+2]))
-        else:
-            q.append((N,score))
+        score[i] = b
 
-        if now + 7 <= N:
-            q.append((now+7,score+arr[now+7]))
-        else:
-            q.append((N,score))
-
-print(Max)
+if N -8 >= 0:
+    ans = max(score[N-8:N])
+else:
+    ans = max(score)
+print(ans)
