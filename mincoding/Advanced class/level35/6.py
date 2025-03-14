@@ -1,20 +1,25 @@
+# import sys
+# sys.stdin = open("input.txt","r")
 import heapq
-n = int(input())
-left_heap = []
-right_heap = []
-heapq.heappush(left_heap, -500)
-for _ in range(n):
-    a, b = map(int,input().split())
-    if a <= -left_heap[0]:
-        heapq.heappush(left_heap, -a)
+
+N = int(input())
+left = [-500]
+right = []
+for _ in range(N):
+    a,b = map(int,input().split())
+    if a >= -left[0]:
+        heapq.heappush(right,a)
     else:
-        heapq.heappush(right_heap, a)
-    if b <= -left_heap[0]:
-        heapq.heappush(left_heap, -b)
+        heapq.heappush(left,-a)
+    if b >= -left[0]:
+        heapq.heappush(right,b)
     else:
-        heapq.heappush(right_heap, b)
-    while len(left_heap) > len(right_heap) + 1:
-        heapq.heappush(right_heap, -heapq.heappop(left_heap))
-    while len(left_heap) < len(right_heap):
-        heapq.heappush(left_heap, -heapq.heappop(right_heap))
-    print(-left_heap[0])
+        heapq.heappush(left,-b)
+
+    while len(left) != len(right) + 1:
+        if len(left) > len(right) + 1:
+            heapq.heappush(right,-heapq.heappop(left))
+        elif len(left) < len(right) + 1:
+            heapq.heappush(left,-heapq.heappop(right))
+
+    print(-left[0])
