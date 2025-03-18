@@ -3,18 +3,18 @@
 
 T, N = map(int,input().split())
 coins = list(map(int,input().split()))
-DP = [21e8] * (T+1)
-DP[0] = 0
+arr = [21e8] * (T+1)
+coins.sort()
 
-def find(n):
+for coin in coins:
+    start = coin
+    for j in range(start,T+1):
+        if j % coin == 0:
+            arr[j] = j // coin
+        else:
+            arr[j] = min(arr[j],j//coin + arr[j%coin])
 
-    for coin in coins:
-        for i in range(coin,T+1):
-            DP[i] = min(DP[i], DP[i-coin] + 1)
-
-    if DP[n] != 21e8:
-        return DP[n]
-    else:
-        return "impossible"
-
-print(find(T))
+if arr[T] == 21e8:
+    print("impossible")
+else:
+    print(arr[T])

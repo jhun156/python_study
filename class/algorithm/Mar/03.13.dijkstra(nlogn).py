@@ -1,31 +1,36 @@
+# 5 7
+# 0 1 3
+# 0 3 9
+# 0 4 5
+# 1 2 7
+# 1 4 1
+# 2 3 1
+# 4 2 1
+# 0 3
+
 import heapq
-
-heap = []
-# 인접 리스트
-N,M = map(int,input().split())
-arr = [[] for _ in range(N)]
-for i in range(M):
-    index,do,cost = map(int,input().split())
-    arr[index].append((do,cost))
-start,end = map(int,input().split())
-
-heapq.heappush(heap,(0,start))
-result = [21e8] * N
-result[start] = 0
+name="ABCDE"
+n,m=map(int,input().split())
+arr=[[] for _ in range(n)]
+for _ in range(m):
+    a,b,c=map(int,input().split()) #시,도,비용
+    arr[a].append((b,c))
+start,end=map(int,input().split()) #시,도착점인덱스
+result=[21e8]*n
+heap=[(0,start)]
+result[start]=0 # 그림에서 빠짐
 
 while heap:
+    
+    ky_cost,ky=heapq.heappop(heap) # 시작점에서 경유지까지의 정보 (힙에서 가져온 정보)
 
-    ky_cost,ky_index = heapq.heappop(heap)
+    if result[ky]<ky_cost: continue # 힙에서 가져온 정보가 최신 데이터 값보다 크다면 pass
 
-    if ky_cost > result[ky_index]:
-        continue
-
-    for end,end_cost in arr[ky_index]:
-        straight = result[end]
-        curve = ky_cost+end_cost
-        if curve < straight:
-            result[end] = curve
-            heapq.heappush(heap,(curve,end))
-
+    for dochack,dochack_cost in arr[ky]: # 경우지에서 도착점까지의 정보를 인접리스트에서 가져오기
+        Baro=result[dochack] # 시->도
+        New=ky_cost+dochack_cost # 시 -> 경 -> 도
+        if New<Baro: # 경유지 들리는게 더 저렴하다면
+            result[dochack]=New # result 갱신
+            heapq.heappush(heap,(New,dochack)) # heap에 갱신된 정보를 업데이트
 print(*result)
 print(result[end])

@@ -1,27 +1,19 @@
-# import sys
-# sys.stdin = open("input.txt","r")
+# 새로운 풀이
+text1 = input()
+text2 = input()
+len1 = len(text1)
+len2 = len(text2)
 
-arr1 = input()
-arr2 = input()
-if len(arr1) > len(arr2):
-    arr1,arr2 = arr2,arr1
-# 항상 가장 긴 문장은 arr2
-n = len(arr1)
-m = len(arr2)
-ans = ''
+arr = [[0] * (len2+1) for _ in range(len1+1)]
+Max = 0
+idx = 0
 
-def find(string):
-    N = len(string)
-    for i in range(m-N+1):
-        if arr2[i:i+N] == string:
-            return string
-    return ''
+for i in range(1,len1+1):
+    for j in range(1,len2+1):
+        if text1[i-1] == text2[j-1]:
+            arr[i][j] = arr[i-1][j-1] + 1
+            if arr[i][j] > Max:
+                Max = arr[i][j]
+                idx = j
 
-for i in range(n,0,-1):
-    for j in range(n-i+1):
-        tmp = find(arr1[j:j+i])
-        if len(tmp) != 0 and len(tmp) > len(ans):
-            ans = tmp
-            break
-
-print(ans)
+print(text2[idx-Max:idx])
