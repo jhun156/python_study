@@ -1,12 +1,5 @@
-# 5 7
-# 0 1 3
-# 0 3 9
-# 0 4 5
-# 1 2 7
-# 1 4 1
-# 2 3 1
-# 4 2 1
-# 0 3
+import sys
+sys.stdin = open("input.txt","r")
 
 import heapq
 name="ABCDE"
@@ -32,5 +25,6 @@ while heap:
         if New<Baro: # 경유지 들리는게 더 저렴하다면
             result[dochack]=New # result 갱신
             heapq.heappush(heap,(New,dochack)) # heap에 갱신된 정보를 업데이트
+
 print(*result)
 print(result[end])
