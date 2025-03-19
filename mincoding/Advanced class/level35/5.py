@@ -5,7 +5,7 @@ arr = list(map(int,input().split()))
 def ugly_number(n):
     heap = []
     heapq.heappush(heap,1)
-    used = set([1])
+    used = {1}
     ugly_lst = []
 
     for _ in range(n):
@@ -20,6 +20,6 @@ def ugly_number(n):
 
     return ugly_lst
 
-for i in range(N):
+for i in range(3):
     ans = ugly_number(arr[i])
     print(ans[-1], end=' ')
