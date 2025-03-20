@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open("input.txt","r")
+# import sys
+# sys.stdin = open("input.txt","r")
 import heapq
 
 N, M, K = map(int,input().split())
@@ -8,16 +8,18 @@ adj_lst = [[] for _ in range(N + 1)]
 for _ in range(M):
     a, b, c = map(int, input().split())
     adj_lst[a].append([b, c])
+    adj_lst[b].append([a, c])
 
 k_lst = [0]
 for i in range(K):
     k_lst.append(int(input()))
 
 for i in range(K+1):
-    for j in range(N+1):
-        if adj_lst[j]:
-            for arr in adj_lst[j]:
-                arr[-1] = arr[-1] + k_lst[i]
+    if i != 0:
+        for j in range(N+1):
+            if adj_lst[j]:
+                for arr in adj_lst[j]:
+                    arr[-1] = arr[-1] + k_lst[i]
     heap = []
     result = [21e8] * (N + 1)
     result[start] = 0
