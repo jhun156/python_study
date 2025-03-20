@@ -1,5 +1,5 @@
-# import sys
-# sys.stdin = open("input.txt","r")
+import sys
+sys.stdin = open("input.txt","r")
 
 arr = [list(input()) for _ in range(4)]
 N = int(input())
@@ -14,6 +14,7 @@ for i in range(4):
 dY = [0,0,1,-1]
 dX = [1,-1,0,0]
 Max = -1
+count = 1
 
 def bomb(y,x):
 
@@ -36,7 +37,7 @@ def clean(y,x):
 
 def dfs(level):
 
-    global Max, ans
+    global Max, ans, count
     if level == N:
         cnt = 0
         for i in range(4):
@@ -55,6 +56,8 @@ def dfs(level):
                 visited[i][j] = 1
                 path[level] = arr[i][j]
                 bomb(i,j)
+                print(count,end=' ')
+                count += 1
                 dfs(level+1)
                 visited[i][j] = 0
                 clean(i,j)
