@@ -1,11 +1,14 @@
 N = int(input())
 arr = [list(map(int,input().split())) for _ in range(N)]
 visited = [0] * N
+saw = set()
+saw.add(tuple(visited))
 Max = -1
+cnt = 1
 
 def dfs():
 
-    global arr, Max
+    global arr, Max, cnt
 
     value = 1
     for j in range(N):
@@ -18,9 +21,14 @@ def dfs():
     for i in range(N):
         if visited[i] < N - 1:
             visited[i] += 1
-            rotation(arr[i])
-            dfs()
-            visited[i] -= 1
+            tmp = tuple(visited)
+            if tmp not in saw:
+                saw.add(tmp)
+                rotation(arr[i])
+                print(cnt, end=' ')
+                cnt += 1
+                dfs()
+                visited[i] -= 1
 
 
 def rotation(lst):
