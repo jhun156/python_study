@@ -29,7 +29,8 @@ def three_score(st,mid,ed):
 
 def dfs(level):
 
-    global Max
+    global Max,cnt
+    cnt += 1
     if level == K:
         score = 0
         for i in range(N):
@@ -56,5 +57,8 @@ def dfs(level):
             dfs(level+1)
             arr[i], arr[j] = arr[j], arr[i]
 
+
+cnt = 0
 dfs(0)
 print(Max)
+print(cnt)
