@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    // foreach문
+    const num = [8,5,2,1]
+    
+    num.forEach(ele => console.log(ele))
+
+    num.forEach(function test(ele){console.log(ele)})
+
+    for (const ele of num) {
+      console.log(ele)
+    }
+
+    for (let x=0; x < 4; x++) {
+      console.log(num[x])
+    }
+
+    const menus = ['짜장면', '짬뽕', '탕수육']
+
+    menus.forEach(ele => console.log(ele+' 좋아!'))
+
+    menus.forEach((menu, index)=>console.log(`${index+1} : ${menu} 좋아!`))
+
+    // 배열값에 2를 곱한 값으로 새로운 배열 만들기
+
+    let num2 = []
+    for (let x=0; x<num.length; x++){
+      num2.push(num[x]*2)
+    }
+    console.log(num2)
+
+    // map method 리스트 객체 반환환
+    const t = num.map(ele=>ele*2)
+    console.log(t)
+
+    const p = menus.map((menu,index) => `${index} : ${menu} 좋아!`)
+    console.log(p)
+
+    const num3 = [8,5,2,1]
+    let num4 = []
+    for (let x=0; x<num3.length; x++) {
+      if (num3[x]%2===0){
+        num4.push(num[x])
+      }
+    }
+    console.log(num4)
+
+    // filter method  조건에 맞는 값만 남기고 객체를 반환
+    const f = num.filter(ele=>ele%2===0)
+    console.log(f)
+
+    //1 for if
+    let menus2 = []
+    for (let x=0; x<menus.length; x++){
+      if (menus[x].length > 2){
+        menus2.push(menus[x])
+      }
+    }
+    console.log(menus2)
+
+    //2  filter
+    const menus3 = menus.filter(menu => menu.length > 2)
+    console.log(menus3)
+
+    const products = [
+      {name : 'cucumber', type : 'vegetable'},
+      {name : 'banana', type : 'fruit'},
+      {name : 'carrot', type : 'vegetable'},
+      {name : 'apple', type : 'fruit'},
+    ]
+
+    const fruits = products.filter((ele) => ele.type === 'fruit')
+    const fruits2 = fruits.map(ele => ele.name)
+    console.log(fruits2)
+
+    // find helper method
+    const numbers = [8,9,5,2,1,9]
+    const j = 9
+    const findj = numbers.find(ele => ele === j)
+    console.log(findj)
+    
+    // every method
+    // 모든 조건이 만족되면 true, 하나라도 아니면 false
+    const e = numbers.every(ele => ele > 0)
+    console.log(e)
+
+    // some method
+    // 조건 하나라도 만족되면 true, 전부 아니면 false
+    const s = numbers.some(ele => ele > 9)
+    console.log(s)
+
+    // 누적합 구하기
+    let tmp = 0
+    for (const num of numbers){
+      tmp += num
+    }
+    console.log(tmp)
+
+    // reduce method
+    // acc 누적값, cur 현재값, 0 시작값 (지금처럼 시작값이 0인 경우엔 생략 가능)
+    const getsum = numbers.reduce((acc,cur) => acc+cur, 0)
+    console.log(getsum)
+
+    const samplefunc = () => {
+      console.log('짜잔')
+    }
+
+    setTimeout(samplefunc, 2000)
+
+    setTimeout(()=>console.log("짜잔"), 3000)
+    
+  </script>
+</body>
+</html>
