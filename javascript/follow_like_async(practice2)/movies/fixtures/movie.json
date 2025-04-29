@@ -1,0 +1,64 @@
+[
+{
+    "model": "movies.movie",
+    "pk": 1,
+    "fields": {
+        "user": 3,
+        "title": "명량",
+        "description": "대한민국 역대 최고 관객 수를 기록한 영화",
+        "like_users": [
+            1
+        ]
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "title": "극한직업",
+        "description": "역대 관객수 순위 2위, 역대 매출액 순위 1위를 기록\r\n닭을 잡을 것인가 범인을 잡을 것인가",
+        "like_users": []
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 3,
+    "fields": {
+        "user": 5,
+        "title": "신과함께 죄와벌",
+        "description": "아무도 본 적 없는 세계가 열린다.",
+        "like_users": []
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 4,
+    "fields": {
+        "user": 5,
+        "title": "어벤져스: 엔드게임",
+        "description": "타노스가 우주의 균형을 맞추기 위해 인피니티 건틀렛을 사용하고 모든 생명체의 절반이 타노스의 핑거스냅으로 사라지게 되었다.",
+        "like_users": []
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 5,
+    "fields": {
+        "user": 5,
+        "title": "겨울왕국2",
+        "description": "우리 딸이 좋아하는 엘사는 신비한 목소리를 듣게 된 후 자신의 마법의 기원을 발견하기 위해 아렌델 왕국을 넘어 여행을 떠나고, 왕국을 구하는 엘사, 안나, 올라프, 크리스토프, 스벤의 이야기를 다룬다.",
+        "like_users": []
+    }
+},
+{
+    "model": "movies.movie",
+    "pk": 6,
+    "fields": {
+        "user": 1,
+        "title": "7번방의 선물",
+        "description": "교도소 7번방에 이상한놈이 들어왔다!\r\n미소녀 전사 세일러 문",
+        "like_users": []
+    }
+}
+]
