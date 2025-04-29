@@ -1,0 +1,47 @@
+[
+{
+    "model": "movies.comment",
+    "pk": 1,
+    "fields": {
+        "movie": 1,
+        "user": 3,
+        "content": "이거"
+    }
+},
+{
+    "model": "movies.comment",
+    "pk": 2,
+    "fields": {
+        "movie": 1,
+        "user": 3,
+        "content": "이거 재미 있나요?"
+    }
+},
+{
+    "model": "movies.comment",
+    "pk": 3,
+    "fields": {
+        "movie": 2,
+        "user": 3,
+        "content": "이거 재미 있나요?"
+    }
+},
+{
+    "model": "movies.comment",
+    "pk": 4,
+    "fields": {
+        "movie": 6,
+        "user": 4,
+        "content": "test 입니다."
+    }
+},
+{
+    "model": "movies.comment",
+    "pk": 5,
+    "fields": {
+        "movie": 4,
+        "user": 4,
+        "content": "test 입니다."
+    }
+}
+]
