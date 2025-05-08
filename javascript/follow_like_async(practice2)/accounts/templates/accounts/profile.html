@@ -1,0 +1,83 @@
+
+{% extends 'base.html' %} 
+
+{% block content %}
+<h1>{{ person.username }}님의 프로필</h1>
+  <div>
+    <div>
+      팔로잉 : <span id="followers-count">{{ person.followings.all|length }}</span> / 
+      팔로워 : <span id="followings-count">{{ person.followers.all|length }}</span>
+    </div>
+    {% if request.user != person %}
+      <div>
+        <form id="follow-form" data-user-id="{{ person.pk }}">
+          {% csrf_token %}
+          {% if request.user in person.followers.all %}
+            <input type="submit" value="Unfollow" />
+          {% else %}
+            <input type="submit" value="Follow" />
+          {% endif %}
+        </form>
+      </div>
+    {% endif %}
+  </div>
+<hr />
+<h2>{{ person.username }}'s 게시글</h2>
+{% for movie in person.movie_set.all %}
+  <div>{{ movie.title }}</div>
+{% endfor %}
+
+<hr />
+<h2>{{ person.username }}'s 댓글</h2>
+{% for comment in person.comment_set.all %}
+<div>{{ comment.content }}</div>
+{% endfor %}
+
+<hr />
+<h2>{{ person.username }}님이 좋아요를 누른 게시글</h2>
+{% for movie in person.like_movies.all %}
+<div>{{ movie.title }}</div>
+{% endfor %}
+<hr />
+<a href="{% url 'movies:index' %}">back</a>
+{% endblock %}
+
+{% block script %}
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const form = document.querySelector('#follow-form')
+    form.addEventListener('submit', function (event) {
+      event.defaultPrevented()
+      
+      const userId = event.target.dataset.userId
+      const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+
+      const followersCountTag = document.querySelector('#followers-count')
+      const followingsCountTag = document.querySelector('#followings-count')
+
+      const followersCount = response.data.followers_count
+      const followingsCount = response.data.followings_count
+
+      followersCountTag.textContent = followersCount
+      followingsCountTag.textContent = followingsCount
+
+      axios({
+        method: 'post',
+        url: `/account/${userId}/follow/`,
+        headers: {'X-CSRFToken': csrftoken},
+      })
+        .then((response) => {
+          
+          const isFollowed = response.data.is_followed
+          const followBtn = document.querySelector('#follow-form > input[type=submit]')
+        
+          if (isFollowed) {
+            followBtn.value = '언팔로우'
+          } else {
+            followBtn.value = '팔로우'
+          }
+        })
+    })
+  </script>
+
+{% endblock script %}
